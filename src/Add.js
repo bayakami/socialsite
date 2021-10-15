@@ -10,7 +10,7 @@ export default function Add(props){
         {
         username:"",
         post:"",
-        //likes:0
+        likes:0
         }
     );
 

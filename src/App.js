@@ -13,6 +13,9 @@ function App() {
 
   const [counters,changeCounters] = useState([]);
   const [counterIndex, changeCounterIndex] = useState(0);
+  const generateButtons = () => {
+
+  }
 
   
   const [todos, changeTodos] = useState([]);
@@ -20,6 +23,10 @@ function App() {
   const updateListItems = (task) => {
     changeTodos((prevState) => [...prevState, task]);
     localStorage.setItem("list",JSON.stringify([...todos,task]));
+  }
+
+  const updateLike = (task) => {
+      changeTodos()
   }
 
 

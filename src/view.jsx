@@ -2,7 +2,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import './App.css';
-import Button from 'react-bootstrap/Button';
 import {useState} from 'react';
 
 function View(props){
