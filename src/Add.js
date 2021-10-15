@@ -3,6 +3,7 @@ import React, { useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import toastr from 'toastr';
+import 'toastr/build/toastr.min.css'
 
 export default function Add(props){
     const[state, changeState] = useState(
@@ -11,7 +12,27 @@ export default function Add(props){
         post:"",
         //likes:0
         }
-    )
+    );
+
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "2000",
+        "timeOut": "20000",
+        "extendedTimeOut": "20000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+      }
+      toastr.clear();
+      
 
     const handleChange = (event) => {
         console.log(event)
@@ -23,6 +44,7 @@ export default function Add(props){
     const formSubmit = (event) => {
         event.preventDefault();
         props.submitHandler(state);
+        console.log("post added");
         toastr.info("You can now view the post on your Home page", "Post added!")
         changeState({username:"", post:""})
     }
@@ -53,7 +75,7 @@ export default function Add(props){
                         />
                 </Form.Group>
                
-                <Button type="submit" variant="success" onClick={()=>toastr.info("You can now view the post on your Home page", "Post added!", {autoClose: 1000 })}>
+                <Button type="submit" variant="success">
                     Post 
                 </Button>
             </Form>
